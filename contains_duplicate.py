@@ -4,10 +4,11 @@ def contains_duplicate(nums: list) -> bool:
         arguments: List of numbers
         return: Bool (True or False)
     """
-    nums = sorted(nums)
-    for i in range(len(nums)-1):
-        if nums[i] == nums[i+1]:
+    nums_hash_set = set()
+    for i in range(len(nums)):
+        if nums[i] in nums_hash_set:
             return True
+        nums_hash_set.add(nums[i])
     return False
 
 print(contains_duplicate([1,2,3,1]))
